@@ -1,0 +1,20 @@
+var $injector = widgetContext.$scope.$injector;
+
+$injector.get('deviceService').getDevice(entityId.id).then(function(device) {
+        if(device.type == 'W DHT11 Sensor') {
+            openDashboardState('ITS-W_state');
+        } else if(device.type == 'M DHT11 Sensor') {
+            openDashboardState('ITS-M_state');
+        } else{
+            openDashboardState('ITS-K_state');
+        }
+});
+
+function openDashboardState(stateId) {
+    var params = {
+        entityId: entityId,
+        entityName: entityName
+    };
+
+    widgetContext.stateController.openState(stateId, params, false);
+}

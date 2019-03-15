@@ -1,12 +1,12 @@
 var $injector = widgetContext.$scope.$injector;
 
 $injector.get('deviceService').getDevice(entityId.id).then(function(device) {
-        if(device.type == 'W DHT11 Sensor') {
-            openDashboardState('ITS-W_state');
-        } else if(device.type == 'M DHT11 Sensor') {
-            openDashboardState('ITS-M_state');
+        if(device.type == 'Energy Sensor') {
+            openDashboardState('energy_state');
+        } else if(device.type == 'Water Sensor') {
+            openDashboardState('water_state');
         } else{
-            openDashboardState('ITS-K_state');
+            openDashboardState('temperature_state');
         }
 });
 
